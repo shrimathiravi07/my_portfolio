@@ -38,7 +38,7 @@
     <div class="hero-container">
       <div class="hero-left" data-aos="fade-right" data-aos-duration="1500">
         <h1>Shrimathi</h1>
-        <h3>Data Scientist & Beauty Aspirant</h3>
+        <h3>I'm a <span class="typing"></span></h3>
         <div class="tagline">
            life is Unexpected,  Journey Don't expect anything .
         </div>
@@ -168,7 +168,40 @@ This project predicts house rental prices in Chennai based on various features s
       p.style.animationDelay = Math.random() * 18 + 's';
       particles.appendChild(p);
     }
+// typing 
+    const typingElement = document.querySelector('.typing');
+const words = ["Data Scientist", "Beauty Aspirant"];
+let wordIndex = 0;
+let charIndex = 0;
+let typingDelay = 150;
+let erasingDelay = 100;
+let newWordDelay = 2000; // Delay before typing next word
 
+function type() {
+  if(charIndex < words[wordIndex].length) {
+    typingElement.textContent += words[wordIndex].charAt(charIndex);
+    charIndex++;
+    setTimeout(type, typingDelay);
+  } else {
+    setTimeout(erase, newWordDelay);
+  }
+}
+
+function erase() {
+  if(charIndex > 0) {
+    typingElement.textContent = words[wordIndex].substring(0, charIndex-1);
+    charIndex--;
+    setTimeout(erase, erasingDelay);
+  } else {
+    wordIndex++;
+    if(wordIndex >= words.length) wordIndex = 0;
+    setTimeout(type, typingDelay + 500);
+  }
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+  if(words.length) setTimeout(type, 1000);
+});
     // Smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(a => {
       a.addEventListener('click', e => {
@@ -179,3 +212,4 @@ This project predicts house rental prices in Chennai based on various features s
   </script>
 </body>
 </html>
+
