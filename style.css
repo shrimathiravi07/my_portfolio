@@ -347,4 +347,11 @@
       .hero-image { width: 340px; height: 340px; }
       .nav { padding: 14px 20px; gap: 20px; }
       .nav a { font-size: 0.95rem; }
+
     }
+.typing {
+  border-right: 3px solid var(--primary);
+  padding-right: 5px;
+  white-space: nowrap;
+  overflow: hidden;
+}
