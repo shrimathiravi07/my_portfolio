@@ -201,6 +201,13 @@ function erase() {
 document.addEventListener("DOMContentLoaded", function() {
   if(words.length) setTimeout(type, 1000);
 });
+    // rightclick lock
+  
+  document.addEventListener('contextmenu', e => e.preventDefault());
+  document.addEventListener('keydown', e => {
+    if ((e.ctrlKey && e.key === 's') || e.key === 'PrintScreen') e.preventDefault();
+  });
+
     // Smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(a => {
       a.addEventListener('click', e => {
@@ -211,6 +218,7 @@ document.addEventListener("DOMContentLoaded", function() {
   </script>
 </body>
 </html>
+
 
 
 
